@@ -21,16 +21,19 @@ const Blogs = () => {
     <div>
       {blogs &&
         blogs.map((blog) => (
+          
           <BlogCard
-            id={blog?._id}
-            isUser={localStorage.getItem("userId") === blog?.user?._id}
-            title={blog?.title}
-            description={blog?.description}
-            image={blog?.image}
-            message={blog?.message}
-            username={blog?.user?.username}
-            time={blog.createdAt}
-          />
+          key={blog?._id}
+          isUser={localStorage.getItem("userId") === blog?.user?._id}
+          title={blog?.title}
+          description={blog?.description}
+          image={blog?.image}
+          message={blog?.message}
+          username={blog?.user?.username}
+          time={blog.createdAt}
+          linkl={blog?.linkl}
+          author = {blog.author}
+        />
         ))}
     </div>
   );

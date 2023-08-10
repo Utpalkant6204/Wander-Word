@@ -18,6 +18,14 @@ const blogSchema = new mongoose.Schema(
       type: String,
       required: [true, "Message is require"],
     },
+    author: {
+      type: String,
+      required: [true, "Message is require"],
+    },
+    linkl: {
+      type: String,
+      required: [true, "Message is require"],
+    },
     user: {
       type: mongoose.Types.ObjectId,
       ref: "User",

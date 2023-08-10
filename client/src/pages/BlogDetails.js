@@ -20,6 +20,8 @@ const BlogDetails = () => {
           description: data?.blog.description,
           image: data?.blog.image,
           message:data?.blog.message,
+          linkl:data?.blog.linkl,
+          author:data?.blog.author,
         });
       }
     } catch (error) {
@@ -47,7 +49,9 @@ const BlogDetails = () => {
         description: inputs.description,
         image: inputs.image,
         message:inputs.message,
+        linkl:inputs.linkl,
         user: id,
+        author:inputs.author,
       });
       if (data?.success) {
         toast.success("Blog Updated");
@@ -128,6 +132,32 @@ const BlogDetails = () => {
           <TextField
             name="message"
             value={inputs.message}
+            onChange={handleChange}
+            margin="normal"
+            variant="outlined"
+            required
+          />
+          <InputLabel
+            sx={{ mb: 1, mt: 2, fontSize: "24px", fontWeight: "bold" }}
+          >
+            Author
+          </InputLabel>
+          <TextField
+            name="author"
+            value={inputs.author}
+            onChange={handleChange}
+            margin="normal"
+            variant="outlined"
+            required
+          />
+          <InputLabel
+            sx={{ mb: 1, mt: 2, fontSize: "24px", fontWeight: "bold" }}
+          >
+            Link
+          </InputLabel>
+          <TextField
+            name="linkl"
+            value={inputs.linkl}
             onChange={handleChange}
             margin="normal"
             variant="outlined"

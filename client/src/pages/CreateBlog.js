@@ -13,6 +13,8 @@ const CreateBlog = () => {
     description: "",
     image: "",
     message:"",
+    linkl:"",
+    author:"",
   });
   // input change
   const handleChange = (e) => {
@@ -30,6 +32,8 @@ const CreateBlog = () => {
         description: inputs.description,
         image: inputs.image,
         message:inputs.message,
+        linkl:inputs.linkl,
+        author:inputs.author,
         user: id,
       });
       if (data?.success) {
@@ -110,6 +114,32 @@ const CreateBlog = () => {
           <TextField
             name="message"
             value={inputs.message}
+            onChange={handleChange}
+            margin="normal"
+            variant="outlined"
+            required
+          />
+          <InputLabel
+            sx={{ mb: 1, mt: 2, fontSize: "24px", fontWeight: "bold" }}
+          >
+           Author
+          </InputLabel>
+          <TextField
+            name="author"
+            value={inputs.author}
+            onChange={handleChange}
+            margin="normal"
+            variant="outlined"
+            required
+          />
+          <InputLabel
+            sx={{ mb: 1, mt: 2, fontSize: "24px", fontWeight: "bold" }}
+          >
+           Social Media 
+          </InputLabel>
+          <TextField
+            name="linkl"
+            value={inputs.linkl}
             onChange={handleChange}
             margin="normal"
             variant="outlined"

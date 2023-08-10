@@ -34,6 +34,9 @@ const UserBlogs = () => {
             message={blog.message}
             username={blog.user.username}
             time={blog.createdAt}
+            author={blog.author}
+            linkl = {blog.linkl}
+           
           />
         ))
       ) : (

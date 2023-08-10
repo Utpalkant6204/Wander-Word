@@ -22,6 +22,8 @@ export default function BlogCard({
   time,
   id,
   isUser,
+  linkl,
+  author,
 }) {
   const navigate = useNavigate();
   const handleEdit = () => {
@@ -30,7 +32,7 @@ export default function BlogCard({
 
   const handleDelete = async () => {
     try {
-      const { data } = await axios.delete(`/api/v1/blog/delete-blog/${id}`);
+      const { data } = await axios.delete(`http://localhost:5000/api/v1/blog/delete-blog/${id}`);
       if (data?.success) {
         alert("Blog Deleted");
         window.location.reload();
@@ -56,6 +58,11 @@ export default function BlogCard({
   };
 
   const formattedTime = getIndianStandardTime(time);
+  const linkStyles = {
+    color: "#333333", 
+    textDecoration: 'none',
+    fontWeight: 'bold'
+  };
 
   return (
     <Card
@@ -100,6 +107,10 @@ export default function BlogCard({
         <Typography variant="body1" color="text.secondary">
           Message : {message}
         </Typography>
+        <Typography variant="body1" color="text.secondary">
+          Author : {linkl && <a href={linkl} target = "_blank" style={linkStyles}>{author} </a>}
+        </Typography>
+    
       </CardContent>
     </Card>
   );
