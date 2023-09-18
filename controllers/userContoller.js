@@ -12,6 +12,7 @@ exports.registerController = async (req, res) => {
         message: "Please Fill all fields",
       });
     }
+    
     //exisiting user
     const exisitingUser = await userModel.findOne({ email });
     if (exisitingUser) {
@@ -65,10 +66,17 @@ exports.loginController = async (req, res) => {
   try {
     const { email, password } = req.body;
     //validation
-    if (!email || !password) {
+    if (!email ) {
       return res.status(401).send({
         success: false,
-        message: "Please provide email or password",
+        message: "Please provide email",
+      });
+    }
+    
+    if (!password) {
+      return res.status(401).send({
+        success: false,
+        message: "Please provide password",
       });
     }
     const user = await userModel.findOne({ email });

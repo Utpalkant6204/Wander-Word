@@ -1,3 +1,4 @@
+const path = require("path"); // use while uploading //extra add when importing
 const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
@@ -26,6 +27,12 @@ app.use(morgan("dev"));
 //routes
 app.use("/api/v1/user", userRoutes);
 app.use("/api/v1/blog", blogRoutes);
+
+//extra add when importing
+app.use(express.static(path.join(__dirname,"./client/build")))
+app.get("*",function (req,res){
+  res.sendFile(path.join(__dirname,"./client/build/index.html"))
+})
 
 // Port
 const PORT = process.env.PORT || 5000;
