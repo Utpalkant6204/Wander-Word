@@ -31,16 +31,7 @@ const Login = () => {
         password: inputs.password,
       });
 
-      if(!data.email)
-      {
-        toast.success(`${data?.message}`);
-        return;
-      }
-      if(!data.password)
-      {
-        toast.success("Please enter valid pasword");
-        return;
-      }
+      
       if (data.success) {
         localStorage.setItem("userId", data?.user._id);
         dispatch(authActions.login());

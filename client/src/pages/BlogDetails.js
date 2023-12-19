@@ -3,6 +3,8 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 import { Box, Button, InputLabel, TextField, Typography } from "@mui/material";
+
+
 const BlogDetails = () => {
   const [blog, setBlog] = useState({});
   const id = useParams().id;

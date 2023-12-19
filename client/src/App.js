@@ -7,6 +7,7 @@ import UserBlogs from "./pages/UserBlogs";
 import CreateBlog from "./pages/CreateBlog";
 import BlogDetails from "./pages/BlogDetails";
 import { Toaster } from "react-hot-toast";
+
 function App() {
   return (
     <>
